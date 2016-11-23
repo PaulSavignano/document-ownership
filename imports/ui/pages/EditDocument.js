@@ -6,8 +6,8 @@ const renderDocumentEditor = (doc) => {
     <div>
       <h4 className="page-header">Editing "{ doc.title }"</h4>
       <DocumentEditor doc={ doc } />
-    </div> : <Alert bsStyle="warning">Shucks. That document is not for you to edit!</Alert>
-  )
+    </div>
+  ) : <Alert bsStyle="warning">Shucks. That document is not for you to edit!</Alert>
 }
 
 const EditDocument = ({ doc }) => (

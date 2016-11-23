@@ -30,8 +30,8 @@ const renderDocument = (doc) => {
         </ButtonToolbar>
       </div>
       { doc.body }
-    </div> : <Alert>Well, fudge. We could not find that document!</Alert>
-  )
+    </div>
+  ) : <Alert>Well, fudge. We could not find that document!</Alert>
 }
 
 const ViewDocument = ({ doc }) => (
