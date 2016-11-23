@@ -17,18 +17,26 @@ const handleRemove = (_id) => {
   }
 };
 
+const renderDocument = (doc) => {
+  return doc ? (
+    <div>
+      <div className="page-header clearfix">
+        <h4 className="pull-left">{ doc.title }</h4>
+        <ButtonToolbar className="pull-right">
+          <ButtonGroup bsSize="small">
+            <Button href={`/documents/${doc_id}/edit`}>Edit</Button>
+            <Button onClick={ () => handleRemove(doc._id) } className="text-danger">Delete</Button>
+          </ButtonGroup>
+        </ButtonToolbar>
+      </div>
+      { doc.body }
+    </div> : <Alert>Well, fudge. We could not find that document!</Alert>
+  )
+}
+
 const ViewDocument = ({ doc }) => (
   <div className="ViewDocument">
-    <div className="page-header clearfix">
-      <h4 className="pull-left">{ doc.title }</h4>
-      <ButtonToolbar className="pull-right">
-        <ButtonGroup bsSize="small">
-          <Button href={`/documents/${doc._id}/edit`}>Edit</Button>
-          <Button onClick={ () => handleRemove(doc._id) } className="text-danger">Delete</Button>
-        </ButtonGroup>
-      </ButtonToolbar>
-    </div>
-    { doc.body }
+    { renderDocument(doc) }
   </div>
 );
 
