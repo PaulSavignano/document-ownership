@@ -9,7 +9,7 @@ const composer = ({ params }, onData) => {
 
   if (subscription.ready()) {
     const owner = Meteor.userId()
-    const doc = owner ? Documents.findOne({ _id: params._id, owner }) : []
+    const doc = owner ? Documents.findOne({ _id: params._id, owner }) : {}
     onData(null, { doc });
   }
 };
